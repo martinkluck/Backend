@@ -6,10 +6,10 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
 
 ### 🤔 **Antes de arrancar, debes tener en cuenta:**
 
-- Se espera que la persona sea creativa 🎨
-- Programe de forma componentizada y ordenada 🏗️
-- Respete los request que pedimos 🤓
-- Se espera que no sea un trabajo de mas de 8 horas, 12 horas como mucho ⏰
+-   Se espera que la persona sea creativa 🎨
+-   Programe de forma componentizada y ordenada 🏗️
+-   Respete los request que pedimos 🤓
+-   Se espera que no sea un trabajo de mas de 8 horas, 12 horas como mucho ⏰
 
 ## 📝 Consigna
 
@@ -38,3 +38,90 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
 10. Deployar para ser testeado
 
 ### 💪 ¡Que la fuerza te acompañe!
+
+---
+
+# Endpoints
+
+- Register: 
+    - '/api/register' - Registro de un nuevo usuario y devuelve un token
+    ```
+    curl  -X POST \
+    'http://localhost/api/register' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+    "name": "Martin",
+    "email": "martinkluck05@gmail.com",
+    "password": "12345678"
+    }'
+    ```
+- Login: 
+    - '/api/login' - Login de un usuario que devuelve un token
+    ```
+    curl  -X POST \
+    'http://localhost/api/login' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+    "email": "martinkluck05@gmail.com",
+    "password": "12345678"
+    }'
+    ```
+- Logout: 
+    - '/api/logout' - Elimina todos los tokens generados del usuario
+    ```
+    curl  -X GET \
+    'http://localhost/api/logout' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer ACCESS_TOKEN'
+    ```
+- People: 
+    - '/api/people' - Obtiene la lista de personajes
+        ```
+        curl  -X GET \
+        'http://localhost/api/people?page=2' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
+    - '/api/people/{id}' - Obtiene un personaje por ID
+        ```
+        curl  -X GET \
+        'http://localhost/api/people/{id}' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
+- Planets:
+  - '/api/planets' - Obtiene la lista de personajes
+
+        ```
+        curl  -X GET \
+        'http://localhost/api/planets?page=2' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
+  - '/api/planets/{id}' - Obtiene un personaje por ID
+
+        ```
+        curl  -X GET \
+        'http://localhost/api/planets/{id}' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
+- Vehicles:
+  - '/api/vehicles' - Obtiene la lista de personajes
+
+        ```
+        curl  -X GET \
+        'http://localhost/api/vehicles?page=2' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
+  - '/api/vehicles/{id}' - Obtiene un personaje por ID
+
+        ```
+        curl  -X GET \
+        'http://localhost/api/vehicles/{id}' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Bearer ACCESS_TOKEN'
+        ```
