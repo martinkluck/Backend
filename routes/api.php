@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PlanetController;
 use App\Http\Controllers\VehicleController;
@@ -17,13 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/people', [PeopleController::class, 'getAll']);
-Route::get('/people/{id}', [PeopleController::class, 'getById']);
-Route::get('/planets', [PlanetController::class, 'getAll']);
-Route::get('/planets/{id}', [PlanetController::class, 'getById']);
-Route::get('/vehicles', [VehicleController::class, 'getAll']);
-Route::get('/vehicles/{id}', [VehicleController::class, 'getById']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout']);
+
+    Route::get('/people', [PeopleController::class, 'getAll']);
+    Route::get('/people/{id}', [PeopleController::class, 'getById']);
+    Route::get('/planets', [PlanetController::class, 'getAll']);
+    Route::get('/planets/{id}', [PlanetController::class, 'getById']);
+    Route::get('/vehicles', [VehicleController::class, 'getAll']);
+    Route::get('/vehicles/{id}', [VehicleController::class, 'getById']);
+});
