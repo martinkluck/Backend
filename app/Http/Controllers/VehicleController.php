@@ -8,11 +8,11 @@ class VehicleController extends Controller
 {
     public function getAll()
     {
-        $page = request('page');
-        if (!$page) {
-            $page = 1;
+        $offset = request('offset');
+        if (!$offset) {
+            $offset = 1;
         }
-        $results = Http::get(env('STARWARS_API_BASEURL') . '/starships/?page=' . $page)['results'];
+        $results = Http::get(env('STARWARS_API_BASEURL') . '/starships/?page=' . $offset)['results'];
         return response()->json($results);
     }
 
