@@ -16,10 +16,6 @@ class PeopleTest extends TestCase
 
     public function test_get_all_people_returns_a_successful_response(): void
     {
-        Http::fake([
-            'swapi.dev/*' => Http::response(['results' => []]),
-        ]);
-
         $user = User::factory()->create([
             'email' => 'test@example.com',
             'password' => bcrypt('password123'),

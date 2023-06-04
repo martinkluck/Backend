@@ -80,7 +80,7 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
     - '/api/people' - Obtiene la lista de personajes
         ```
         curl  -X GET \
-        'http://localhost/api/people?offset=2' \
+        'http://localhost/api/people?page=2&perPage=5' \
         --header 'Accept: application/json' \
         --header 'Authorization: Bearer ACCESS_TOKEN'
         ```
@@ -96,7 +96,7 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
 
         ```
         curl  -X GET \
-        'http://localhost/api/planets?offset=2' \
+        'http://localhost/api/planets?page=2&perPage=5' \
         --header 'Accept: application/json' \
         --header 'Authorization: Bearer ACCESS_TOKEN'
         ```
@@ -113,7 +113,7 @@ Este trabajo práctico tiene como objetivo principal conocer las mejores prácti
 
         ```
         curl  -X GET \
-        'http://localhost/api/vehicles?offset=2' \
+        'http://localhost/api/vehicles?page=2&perPage=5' \
         --header 'Accept: application/json' \
         --header 'Authorization: Bearer ACCESS_TOKEN'
         ```

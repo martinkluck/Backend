@@ -15,10 +15,6 @@ class PlanetsTest extends TestCase
     use RefreshDatabase;
     public function test_get_all_planets_returns_a_successful_response(): void
     {
-        Http::fake([
-            'swapi.dev/*' => Http::response(['results' => []]),
-        ]);
-
         $user = User::factory()->create([
             'email' => 'test@example.com',
             'password' => bcrypt('password123'),
